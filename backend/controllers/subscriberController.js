@@ -8,6 +8,7 @@ exports.createSubscriber = async (req, res) => {
     res.status(201).json({ message: 'Correo registrado exitosamente' });
   } catch (err) {
     if (err.code === 11000) {
+      
       res.status(409).json({ message: 'Este correo ya está registrado' });
     } else {
       res.status(500).json({ message: 'Error al registrar correo', error: err });
