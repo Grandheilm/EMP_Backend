@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/5.3.3/sandstone/bootstrap.rtl.min.css" integrity="sha512-OEpQp5EYcCRA37ga7kii9iBtFtrC7cq2SOaC8IbN3DAzslsBJBBGsqdXjfTGJtjuH8hL/ZUKskVLwggdwNi/tg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <title>Subs Email</title>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+        <img src="/idk/assets/yunque.png" width="30" height="30" class="d-inline-block align-top" alt="">
+        Dwarven Forge
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarScroll">
+        <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Jobs
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="idk.html">Blacksmith</a></li>
+              <li><a class="dropdown-item" href="goldsmith.html">Goldsmith</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="more.html">More Info</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="shop.html">Shop</a>
+          </li>
+        </ul>
+        <form class="d-flex" role="search">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+  </nav>  
+<section class="py-3 py-md-5 py-xl-10 bg-light">
+    <div class="container">
+      <div class="row justify-content-md-center">
+        <div class="col-12 col-md-9 col-lg-8 col-xl-7 col-xxl-6">
+          <h2 class="display-4 mb-4 mb-md-5 mb-xxl-6 text-center">Sign up for our newsletter and never miss a thing.</h2>
+        </div>
+      </div>
+      <div class="row justify-content-md-center">
+        <div class="col-12 col-md-10 col-lg-9 col-xl-8 col-xxl-7">
+          <form class="row gy-3 gy-lg-0 gx-lg-2 justify-content-center">
+            <div class="col-12 col-lg-8">
+              <label for="email-newsletter-component" class="visually-hidden">Email Address</label>
+              <input type="email" class="form-control bsb-form-control-3xl" id="email-newsletter-component" value="" placeholder="Email Address" aria-label="email-newsletter-component" aria-describedby="email-newsletter-help" required>
+              <div id="email-newsletter-help" class="form-text text-center text-lg-start">We'll never share your email with anyone else.</div>
+            </div>
+            <div class="col-12 col-lg-3 text-center text-lg-start">
+              <button type="submit" class="btn btn-primary bsb-btn-3xl">Subscribe</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="container">
+    <footer class="py-3 my-4">
+      <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+        <li class="nav-item"><a href="index.html" class="nav-link px-2 text-body-secondary">Home</a></li>
+        <li class="nav-item"><a href="https://getbootstrap.com/docs/5.3/getting-started/introduction/" class="nav-link px-2 text-body-secondary">Features</a></li>
+        <li class="nav-item"><a href="https://www.amazon.com.mx/s?k=blacksmith+tools&__mk_es_MX=ÅMÅŽÕÑ&crid=5B19WM3E7YZ2&sprefix=blacksmith+tools%2Caps%2C95&ref=nb_sb_noss_1" class="nav-link px-2 text-body-secondary">Pricing</a></li>
+        <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">FAQs</a></li>
+        <li class="nav-item"><a href="more.html" class="nav-link px-2 text-body-secondary">About</a></li>
+      </ul>
+      <p class="text-center text-body-secondary">© 2025 Company, Inc</p>
+    </footer>
+  </div>
+  <script>
+    const form = document.querySelector('form');
+    const emailInput = document.getElementById('email-newsletter-component');
+  
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+  
+      const email = emailInput.value;
+  
+      try {
+        const response = await fetch('/api/subscribers', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ email })
+        });
+  
+        const data = await response.json();
+        alert(data.message || 'Correo enviado');
+        form.reset();
+      } catch (error) {
+        alert('Hubo un error al enviar el correo.');
+        console.error(error);
+      }
+    });
+  </script>  
+</body>
+</html>

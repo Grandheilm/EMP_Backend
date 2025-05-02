@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dwarven Forge Shop</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">
+            <img src="/idk/assets/yunque.png" width="30" height="30" class="d-inline-block align-top" alt="">
+            Dwarven Forge
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarScroll">
+            <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Jobs
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="idk.html">Blacksmith</a></li>
+                  <li><a class="dropdown-item" href="goldsmith.html">Goldsmith</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="more.html">More Info</a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="shop.html">Shop</a>
+              </li>
+            </ul>
+            <form class="d-flex" role="search">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+          </div>
+        </div>
+      </nav>  
+    <!-- Hero Section -->
+    <header class="bg-dark text-white text-center py-5">
+        <h1>Welcome to Dwarven Forge Shop</h1>
+        <p>High-quality blacksmithing tools and materials</p>
+    </header>
+
+    <!-- Product Section -->
+    <section class="container py-5">
+        <div class="row">
+            <div class="col-md-4 mb-4" v-for="product in products">
+                <div class="card">
+                    <img src="/idk/assets/forgehammer.jpg" class="card-img-top" alt="Product Image">
+                    <div class="card-body">
+                        <h5 class="card-title">Forge Hammer</h5>
+                        <p class="card-text">High-quality steel hammer for precision forging.</p>
+                        <p class="fw-bold">$49.99</p>
+                        <a href="#" class="btn btn-primary">Add to Cart</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <footer class="py-3 my-4">
+          <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+            <li class="nav-item"><a href="index.html" class="nav-link px-2 text-body-secondary">Home</a></li>
+            <li class="nav-item"><a href="https://getbootstrap.com/docs/5.3/getting-started/introduction/" class="nav-link px-2 text-body-secondary">Features</a></li>
+            <li class="nav-item"><a href="https://www.amazon.com.mx/s?k=blacksmith+tools&__mk_es_MX=ÅMÅŽÕÑ&crid=5B19WM3E7YZ2&sprefix=blacksmith+tools%2Caps%2C95&ref=nb_sb_noss_1" class="nav-link px-2 text-body-secondary">Pricing</a></li>
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">FAQs</a></li>
+            <li class="nav-item"><a href="more.html" class="nav-link px-2 text-body-secondary">About</a></li>
+          </ul>
+          <p class="text-center text-body-secondary">© 2025 Company, Inc</p>
+        </footer>
+      </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

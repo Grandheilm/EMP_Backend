@@ -1,0 +1,9 @@
+.carousel {
+  max-width: 1920px; /* Adjust width as needed */
+  margin: auto; /* Centers the carousel */
+}
+
+.carousel-inner img {
+  height: 700px; /* Adjust height */
+  object-fit: cover; /* Ensures images fill the space */
+}
