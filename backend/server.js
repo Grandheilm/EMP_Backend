@@ -6,6 +6,10 @@ const path = require('path');
 const app = express();
 const PORT = process.env.PORT || 3000;
 const compraRoutes = require('./routes/compraRoutes');
+const cors = require('cors');
+
+app.use(cors());
+
 dotenv.config();
 
 app.use(express.json());
