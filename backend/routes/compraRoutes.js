@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 const Compra = require('../models/compras');
 
+
+
 router.post('/', async (req, res) => {
   try {
     const nuevaCompra = new Compra(req.body);
@@ -11,5 +13,7 @@ router.post('/', async (req, res) => {
     res.status(500).json({ message: 'Error al guardar la compra', error });
   }
 });
+
+router.get('/', obtenerCompras);
 
 module.exports = router;
