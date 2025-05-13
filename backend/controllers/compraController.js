@@ -2,15 +2,25 @@ const Compra = require('../models/Compra');
 
 // Crear nueva compra
 const crearCompra = async (req, res) => {
+  const { producto, tarjeta, direccion } = req.body;
+
   try {
-    const nuevaCompra = new Compra(req.body);
+    // Verificar si ya se compró el producto
+    const yaComprado = await Compra.findOne({ producto });
+    if (yaComprado) {
+      return res.status(400).json({ message: 'Este producto ya ha sido comprado y no está disponible.' });
+    }
+
+    // Guardar nueva compra
+    const nuevaCompra = new Compra({ producto, tarjeta, direccion });
     await nuevaCompra.save();
     res.status(201).json({ message: 'Compra registrada con éxito', compra: nuevaCompra });
+
   } catch (error) {
-    console.error('Error al registrar la compra:', error);
     res.status(500).json({ message: 'Error al registrar la compra', error });
   }
 };
+
 
 // Obtener todas las compras
 const obtenerCompras = async (req, res) => {
