@@ -1,4 +1,10 @@
-const express = require('express');
+const {
+  crearCompra,
+  obtenerCompras,      // ← ¡ESTA línea es la que falta!
+  eliminarCompra,
+  actualizarCompra
+} = require('../controllers/compraController');
+
 const router = express.Router();
 const Compra = require('../models/compras');
 
